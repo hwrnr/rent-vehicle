@@ -24,7 +24,7 @@
 .buttons-right {
   display: flex;
   align-items: center;
-  width: 5em;
+  width: 6em;
   text-align: left;
 }
 
@@ -34,4 +34,8 @@
   background-color: #1976d2;
   color: white;
   padding: 0.5em;
+}
+
+.makeBigger {
+  margin: 1.4em;
 }

@@ -1,4 +1,11 @@
-import Home from "./Home/Home";
-import Vehicles from "./Vehicles/Vehicles";
+import Home from "./Home";
+import Vehicles from "./Vehicles";
+import Reserve from "./Reserve";
 
-export default { Home, Vehicles };
+const Page = {
+  Home,
+  Vehicles,
+  Reserve,
+}
+
+export default Page;

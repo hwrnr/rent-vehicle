@@ -25,12 +25,14 @@ const Vehicle = (props) => {
       </div>
       <div className="data-right">
         <h3> {props.vehicle.regNumber} </h3>
-        <p> Distance: {vehicle.distance}m </p>
-        <p> Price: {vehicle.price} RSD/h </p>
+        <p> Razdaljina: {vehicle.distance}m </p>
+        <p> Cena: {vehicle.price} RSD/h </p>
       </div>
+    {props.hideReserveButton ? null :
       <div className="buttons-right">
-        <Link className="link-button" to="/reserve"> {vehicle.distance < 300 ? "Check in" : "Reserve"} </Link>
+        <Link className="link-button" to="/reserve"> {vehicle.distance < 300 ? "Prijavi se" : "Rezerviši"} </Link>
       </div>
+    }
 
     </div>
   );

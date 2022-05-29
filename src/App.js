@@ -39,7 +39,7 @@ function App() {
               >
                 <Menu />
               </IconButton>
-              <p> Rent vehicle </p>
+              <p> Kul ime aplikacije </p>
 
               <p style={{marginLeft: "auto"}}> 3120.84 RSD </p>
 
@@ -53,8 +53,8 @@ function App() {
                     <div style={{width: "17em"}}>
                       <img src={logo} alt=""/>
                     </div>
-                    <DrawerLink to="/"> Home </DrawerLink>
-                    <DrawerLink to="/vehicles"> Vehicles </DrawerLink>
+                    <DrawerLink to="/"> Početna </DrawerLink>
+                    <DrawerLink to="/vehicles"> Vozila </DrawerLink>
                   </Box>
               </Drawer>
             </Toolbar>
