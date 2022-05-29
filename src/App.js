@@ -18,6 +18,13 @@ function App() {
     setIsDrawerOpen(status);
   }
 
+  const DrawerLink = (props) => {
+    return (
+      <Link onClick={toggleDrawer(false)} className="drawer-button" {...props}></Link>
+    )
+  }
+
+
   return (
     <div className="App">
       <Router>
@@ -44,10 +51,10 @@ function App() {
               >
                   <Box>
                     <div style={{width: "17em"}}>
-                      <img src={logo} />
+                      <img src={logo} alt=""/>
                     </div>
-                    <Link className="drawer-button" to="/"> Početna </Link>
-                    <Link className="drawer-button" to="/vehicles"> Vozila </Link>
+                    <DrawerLink to="/"> Home </DrawerLink>
+                    <DrawerLink to="/vehicles"> Vehicles </DrawerLink>
                   </Box>
               </Drawer>
             </Toolbar>
