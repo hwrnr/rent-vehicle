@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <AppBar position="static">
+        <AppBar position="sticky">
           <Toolbar>
               {/* hamburger icon shows the drawer on click */}
               <IconButton
