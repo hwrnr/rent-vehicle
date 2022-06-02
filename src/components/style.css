@@ -1,0 +1,11 @@
+.collapse-container > h3 {
+  margin-top: 1em;
+  border-bottom: #1976d2 solid 1px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.collapse-container > * {
+  margin: 0
+}
+

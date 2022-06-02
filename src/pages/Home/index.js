@@ -2,7 +2,7 @@ import "../style.css";
 
 const Home = () => {
   return (
-    <div className="center">
+    <div className="root">
       Proba
     </div>
   )

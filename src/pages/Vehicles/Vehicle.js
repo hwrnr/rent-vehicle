@@ -30,7 +30,7 @@ const Vehicle = (props) => {
       </div>
     {props.hideReserveButton ? null :
       <div className="buttons-right">
-        <Link className="link-button" to="/reserve"> {vehicle.distance < 300 ? "Prijavi se" : "Rezerviši"} </Link>
+        <Link className="link-button" to="/user/reserve"> Rezerviši </Link>
       </div>
     }
 

@@ -2,15 +2,17 @@ import React from "react";
 
 import { Route, Routes } from "react-router-dom";
 
-import Page from "./pages";
+import Login from "./pages/Login";
+
+import UserApp from "./UserApp";
+import AdminApp from "./AdminApp";
 
 const Routing = () => {
   return (
     <Routes>
-      <Route path="/" element={<Page.Home/>} />
-      <Route path="/vehicles" element={<Page.Vehicles/>} />
-      <Route path="/reserve" element={<Page.Reserve/>} />
-
+      <Route path="/user/*" element={<UserApp/>} />
+      <Route path="/admin/*" element={<AdminApp/>} />
+      <Route path="/auth" element={<Login/>} />
     </Routes>
   )
 

@@ -10,9 +10,9 @@
 
 .icon-left {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  width: 4em;
+  width: 2em;
   height: 4em;
 }
 
@@ -38,4 +38,75 @@
 
 .makeBigger {
   margin: 1.4em;
+}
+
+.card-item {
+  margin: 2em 1em 2em 1em;
+}
+
+.card-item * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.full-button {
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.2em;
+  width: calc(100% - 2em);
+  background-color: none;
+  border: none;
+  padding: 1em;
+  margin: 1em;
+}
+
+.filteri {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.root {
+  margin-left: 1.0em;
+  margin-right: 1.0em;
+}
+
+.chat-bubble {
+  max-width: 60%;
+  border-radius: 0.7em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.4em;
+}
+
+.chat-left {
+  background-color: #1976d2;
+  color: white;
+}
+
+.chat-right {
+  margin-left: auto;
+  background-color: white;
+  border: solid #1976d2 1px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+@media only screen and (min-width: 600px) {
+  .login{
+    max-width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.force-margin > * {
+  margin-top: 1em !important;
 }

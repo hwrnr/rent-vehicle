@@ -25,7 +25,7 @@ const Reserve = (props) => {
   });
 
   return (
-    <>
+    <div className="root">
       <h2> Rezerviši vozilo </h2>
       <Vehicle hideReserveButton={true} vehicle={vehicle} />
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={srLocale}>
@@ -54,10 +54,10 @@ const Reserve = (props) => {
           />
         </div>
 
-        <p> Cena: {Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price } RSD</p>
-        <Link className="link-button" to="/vehicles"> Rezerviši </Link>
+        <p> Cena: {Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price } RSD + gorivo</p>
+        <Link className="link-button" to="/reserve-vehicles"> Rezerviši </Link>
       </LocalizationProvider>
-    </>
+    </div>
   );
 };
 
