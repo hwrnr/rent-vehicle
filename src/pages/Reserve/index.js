@@ -55,7 +55,7 @@ const Reserve = (props) => {
         </div>
 
         <p> Cena: {Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price } RSD + gorivo</p>
-        <Link className="link-button" to="/reserve-vehicles"> Rezerviši </Link>
+        <Link className="link-button" to="/user/reserve-vehicles"> Rezerviši </Link>
       </LocalizationProvider>
     </div>
   );

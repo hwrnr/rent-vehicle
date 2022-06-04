@@ -10,7 +10,7 @@
 
 .icon-left {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   width: 2em;
   height: 4em;
@@ -21,10 +21,15 @@
   text-align: left;
 }
 
+.buttons-right > * {
+  margin-right: 0.3em;
+}
+
 .buttons-right {
   display: flex;
   align-items: center;
-  width: 6em;
+  justify-content: center;
+  min-width: 6em;
   text-align: left;
 }
 
@@ -99,14 +104,84 @@
   height: 100vh;
 }
 
+.fake-toolbar {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.MuiPaper-root {
+  border-right: none !important;
+}
+
 @media only screen and (min-width: 600px) {
   .login{
     max-width: 40em;
     margin-left: auto;
     margin-right: auto;
   }
+
+  :root {
+    --drawer-width: 17em;
+  }
+
+  header, .root {
+    margin-left: var(--drawer-width);
+    width: calc(100% - var(--drawer-width));
+  }
+
+  .root {
+    min-height: calc(100vh - var(5.6em));
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
 }
 
 .force-margin > * {
   margin-top: 1em !important;
 }
+
+.columns-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  flex: 1;
+  padding: 1em;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0.5em 2em 0.5em;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  display: flex;
+  font-weight: bold;
+}
+
+.user-name > * {
+  margin-right: 0.5em;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details > p {
+  margin: 0;
+  margin-top: 0.5em;
+}
+
+.user-type {
+  text-align: right;
+}
+
+

@@ -1,5 +1,6 @@
 .App {
   text-align: left;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -48,4 +49,11 @@
 
 .drawer-button:hover {
   background: gray;
+}
+
+.apart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }

@@ -21,15 +21,19 @@ const Chat = () => {
     },
     {
       position: "chat-right",
-      text: "Imam problem",
+      text: "Imam problem sa uplatom kredita",
     },
     {
       position: "chat-left",
-      text: "Boli nas uvo",
+      text: "Kredit će biti dostupan nakon proknjižene uplate. Ukoliko je prošlo više od dva radna dana od uplate, pošaljite nam podatke o uplati kako bi proverili njen status",
     },
     {
       position: "chat-right",
-      text: "Understandable, have a nice day!",
+      text: "Podaci o uplati su sledeći",
+    },
+    {
+      position: "chat-right",
+      text: "Broj računa: 0080XXXXXXX213",
     },
   ])
 

@@ -7,6 +7,8 @@ import ReportBug from "./ReportBug";
 import Chat from "./Chat";
 import FAQ from "./FAQ";
 import Login from "./Login";
+import AdminVehicles from "./Admin/Vehicles";
+import AdminUsers from "./Admin/Users";
 
 const Page = {
   Home,
@@ -18,6 +20,9 @@ const Page = {
   Chat,
   FAQ,
   Login,
+
+  AdminVehicles,
+  AdminUsers,
 }
 
 export default Page;

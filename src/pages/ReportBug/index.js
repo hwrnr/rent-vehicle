@@ -9,7 +9,7 @@ const ReportBug = () => {
       <h3> Prijava greške u radu aplikacije </h3>
       <TextField 
         fullWidth
-        placeholder="Naslov"
+        placeholder="Kratak opis greške"
       />
       <TextField 
         fullWidth
