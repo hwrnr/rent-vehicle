@@ -76,7 +76,7 @@ function App() {
                 <div>
                   <DrawerLink to="/user/faq"> FAQ </DrawerLink>
                   <DrawerLink to="/user/report"> Prijavi grešku u app </DrawerLink>
-                  <DrawerLink to="/auth"> Odjavi se </DrawerLink>
+                  <DrawerLink to="/"> Odjavi se </DrawerLink>
                 </div>
               </div>
             </Box>

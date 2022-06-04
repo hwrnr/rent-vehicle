@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="root login force-margin">
+    <div className="login force-margin">
       <img src={logo} alt=""/>
       <TextField fullWidth placeholder="Email" />
       <PasswordField fullWidth placeholder="Password" />

@@ -52,7 +52,7 @@ function App() {
                   <DrawerLink to="/admin/users"> Korisnici </DrawerLink>
                 </div>
                 <div>
-                  <DrawerLink to="/auth"> Odjavi me </DrawerLink>
+                  <DrawerLink to="/"> Odjavi me </DrawerLink>
                 </div>
               </div>
             </Box>

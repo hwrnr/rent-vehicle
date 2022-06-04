@@ -10,6 +10,8 @@ import Login from "./Login";
 import AdminVehicles from "./Admin/Vehicles";
 import AdminUsers from "./Admin/Users";
 
+import Dashboard from "./Dashboard";
+
 const Page = {
   Home,
   Vehicles,
@@ -23,6 +25,8 @@ const Page = {
 
   AdminVehicles,
   AdminUsers,
+
+  Dashboard,
 }
 
 export default Page;
