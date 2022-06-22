@@ -9,7 +9,8 @@ const Routing = () => {
     <Routes>
       <Route path="/" element={<Page.Home/>} />
       <Route path="/reserve-vehicles" element={<Page.Vehicles/>} />
-      <Route path="/reserve" element={<Page.Reserve/>} />
+      <Route path="/my-reservations" element={<Page.Reservations/>} />
+      <Route path="/reserve/:_id" element={<Page.Reserve/>} />
       <Route path="/settings" element={<Page.Settings/>} />
       <Route path="/credit" element={<Page.Credit/>} />
       <Route path="/report" element={<Page.ReportBug/>} />

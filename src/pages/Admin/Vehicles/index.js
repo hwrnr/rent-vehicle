@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import Vehicle from "./Vehicle";
 
@@ -27,43 +28,17 @@ const AdminVehicles = () => {
   const [regBroj, setRegBroj] = useState("");
   const [cena, setCena] = useState("");
 
-  const [data, setData] = useState([
-    {
-      id: 1,
-      regNumber: "NS 555 RT",
-      distance: 200,
-      price: 100,
-      type: 0,
-    },
-    {
-      id: 2,
-      regNumber: "NS 904 BR",
-      distance: 1200,
-      price: 100,
-      type: 1,
-    },
-    {
-      id: 3,
-      regNumber: "Bike 12",
-      distance: 600,
-      price: 100,
-      type: 2,
-    },
-    {
-      id: 4,
-      regNumber: "Trotinet 31",
-      distance: 10,
-      price: 100,
-      type: 3,
-    },
-    {
-      id: 5,
-      regNumber: "NS 418 NJ",
-      distance: 1000,
-      price: 100,
-      type: 1,
-    },
-  ]);
+  const [data, setData] = useState([]);
+
+  const fetchData = () => {
+    axios.get(`http://127.0.0.1:5984/vehicles/_all_docs?include_docs=true`).then((res) => {
+      setData(res.data.rows.map(row => row.doc));
+    });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleIconPress = (value) => () => {
     setSelectedType((oldSelectedType) => {
@@ -123,15 +98,15 @@ const AdminVehicles = () => {
             />
 
           <Button fullWidth variant="contained" onClick={() => {
-            const dataCopy = [...data];
-            dataCopy.push({
-                id: Object.keys(data).length + 1,
+            // const _id = "4d19cb43-e7b4-4346-9225-8f4ec420894d"
+          const _id = (new Date()).toISOString();
+           axios.put(`http://127.0.0.1:5984/vehicles/${_id}`, {
+             _id,
                 regNumber: regBroj,
                 distance: 200,
                 price: Number(cena),
-                type: kategorija,
-            })
-            setData(dataCopy);
+                type: kategorija
+           }).then(() => fetchData())
           }} > Unesi vozilo </Button>
 
           </div>

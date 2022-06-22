@@ -64,11 +64,11 @@ function App() {
               <div style={{ width: "17em" }}>
                 <img src={logo} alt="" />
               </div>
-              <div class="apart">
+              <div className="apart">
                 <div>
                   <DrawerLink to="/user/"> Početna </DrawerLink>
                   <DrawerLink to="/user/reserve-vehicles"> Napravi rezervaciju </DrawerLink>
-                  <DrawerLink to="/user/vehicles"> Moje rezervacije </DrawerLink>
+                  <DrawerLink to="/user/my-reservations"> Moje rezervacije </DrawerLink>
                   <DrawerLink to="/user/credit"> Uplati kredit </DrawerLink>
                   <DrawerLink to="/user/chat"> Razgovor sa tehničkom podrškom </DrawerLink>
                   <DrawerLink to="/user/settings"> O meni </DrawerLink>

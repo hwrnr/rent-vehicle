@@ -1,6 +1,7 @@
 import Home from "./Home";
 import Vehicles from "./Vehicles";
 import Reserve from "./Reserve";
+import Reservations from "./Reservations";
 import Settings from "./Settings";
 import Credit from "./Credit";
 import ReportBug from "./ReportBug";
@@ -17,6 +18,7 @@ const Page = {
   Home,
   Vehicles,
   Reserve,
+  Reservations,
   Settings,
   Credit,
   ReportBug,

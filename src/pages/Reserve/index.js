@@ -1,28 +1,48 @@
-import { useState } from "react";
+import "../style.css";
 
-import { TextField } from '@mui/material';
-import { Link } from "react-router-dom";
-
-import { DateTimePicker } from "@mui/x-date-pickers";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import {TextField, Button } from '@mui/material';
+import {DateTimePicker} from "@mui/x-date-pickers";
+import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
+import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
+import axios from "axios";
 import srLocale from 'date-fns/locale/sr'
+import {useState, useEffect } from "react";
+import {Link, useParams} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Vehicle from "../Vehicles/Vehicle";
 
-import "../style.css";
-
 const Reserve = (props) => {
-
   const [startTime, setStartTime] = useState(new Date());
   const [endTime, setEndTime] = useState(new Date());
 
-  const [vehicle, setVehicle] = useState({
-    regNumber: "NS 418 NJ",
-    distance: 1000,
-    price: 100,
-    type: 1,
-  });
+  const navigate = useNavigate();
+  const {_id} = useParams();
+
+  const [vehicle, setVehicle] = useState({});
+
+  const fetchData = () => {
+    axios.get(`http://127.0.0.1:5984/vehicles/${_id}`).then((res) => {
+      setVehicle(res.data);
+    });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleReserve = () => {
+    const _id = (new Date()).toISOString();
+     axios.put(`http://127.0.0.1:5984/reservations/${_id}`, {
+       _id, 
+       startTime,
+       endTime,
+       vehicle,
+       cena: Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price,
+     }).then(() => {
+        navigate("/user/my-reservations");
+     })
+  }
 
   return (
     <div className="root">
@@ -30,8 +50,11 @@ const Reserve = (props) => {
       <Vehicle hideReserveButton={true} vehicle={vehicle} />
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={srLocale}>
         <div className="makeBigger">
-          <DateTimePicker 
-            renderInput={(props) => <TextField {...props} />}
+          <DateTimePicker
+  renderInput = {
+    (props) => <TextField {
+      ...props
+    } />}
             label="Početno vreme"
             value={startTime}
             fullwidth
@@ -40,22 +63,22 @@ const Reserve = (props) => {
                 setStartTime(newValue);
             }}
           />
-        </div>
+    </div>
         <div className="makeBigger">
           <DateTimePicker
-            renderInput={(props) => <TextField {...props} />}
-            label="Krajnje vreme"
-            value={endTime}
-            fullwidth
-            onChange={(newValue) => {
-              if (newValue > startTime)
-                setEndTime(newValue);
-            }}
+            renderInput={(props) => <TextField {...props} />
+  } label = "Krajnje vreme"
+  value = {endTime} fullwidth
+            onChange={
+    (newValue) => {
+      if (newValue > startTime)
+        setEndTime(newValue);
+    }}
           />
         </div>
 
         <p> Cena: {Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price } RSD + gorivo</p>
-        <Link className="link-button" to="/user/reserve-vehicles"> Rezerviši </Link>
+        <Button fullWidth variant="contained" onClick={handleReserve} > Rezerviši </Button>
       </LocalizationProvider>
     </div>
   );
