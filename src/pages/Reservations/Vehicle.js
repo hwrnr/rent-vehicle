@@ -27,6 +27,8 @@ const Vehicle = (props) => {
       <div className="data-right">
         <h3> {vehicle.regNumber} </h3>
         <p> Razdaljina: {vehicle.distance}m </p>
+        <p> Vreme od: {(new Date(reservation.startTime)).toLocaleString("sr")} </p>
+        <p> Vreme do: {(new Date(reservation.endTime)).toLocaleString("sr")} </p>
         <p> Cena: {reservation.cena} + gorivo </p>
       </div>
     {props.hideReserveButton ? null :

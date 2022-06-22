@@ -31,7 +31,7 @@ const AdminVehicles = () => {
   const [data, setData] = useState([]);
 
   const fetchData = () => {
-    axios.get(`http://127.0.0.1:5984/vehicles/_all_docs?include_docs=true`).then((res) => {
+    axios.get(`http://mis.ggsystems.tech:5984/vehicles/_all_docs?include_docs=true`).then((res) => {
       setData(res.data.rows.map(row => row.doc));
     });
   };
@@ -100,7 +100,7 @@ const AdminVehicles = () => {
           <Button fullWidth variant="contained" onClick={() => {
             // const _id = "4d19cb43-e7b4-4346-9225-8f4ec420894d"
           const _id = (new Date()).toISOString();
-           axios.put(`http://127.0.0.1:5984/vehicles/${_id}`, {
+           axios.put(`http://mis.ggsystems.tech:5984/vehicles/${_id}`, {
              _id,
                 regNumber: regBroj,
                 distance: 200,

@@ -26,7 +26,7 @@ const Vehicles = () => {
   const [data, setData] = useState([]);
 
   const fetchData = () => {
-    axios.get(`http://127.0.0.1:5984/vehicles/_all_docs?include_docs=true`).then((res) => {
+    axios.get(`http://mis.ggsystems.tech:5984/vehicles/_all_docs?include_docs=true`).then((res) => {
       setData(res.data.rows.map(row => row.doc));
     });
   };

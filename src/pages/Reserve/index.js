@@ -22,7 +22,7 @@ const Reserve = (props) => {
   const [vehicle, setVehicle] = useState({});
 
   const fetchData = () => {
-    axios.get(`http://127.0.0.1:5984/vehicles/${_id}`).then((res) => {
+    axios.get(`http://mis.ggsystems.tech:5984/vehicles/${_id}`).then((res) => {
       setVehicle(res.data);
     });
   };
@@ -33,7 +33,7 @@ const Reserve = (props) => {
 
   const handleReserve = () => {
     const _id = (new Date()).toISOString();
-     axios.put(`http://127.0.0.1:5984/reservations/${_id}`, {
+     axios.put(`http://mis.ggsystems.tech:5984/reservations/${_id}`, {
        _id, 
        startTime,
        endTime,
