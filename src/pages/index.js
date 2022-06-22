@@ -11,6 +11,7 @@ import AdminVehicles from "./Admin/Vehicles";
 import AdminUsers from "./Admin/Users";
 
 import Dashboard from "./Dashboard";
+import Document from "./Document";
 
 const Page = {
   Home,
@@ -27,6 +28,7 @@ const Page = {
   AdminUsers,
 
   Dashboard,
+  Document,
 }
 
 export default Page;

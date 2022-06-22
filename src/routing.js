@@ -15,6 +15,7 @@ const Routing = () => {
       <Route path="/" element={<Page.Dashboard />} />
       <Route path="/user/*" element={<UserApp/>} />
       <Route path="/admin/*" element={<AdminApp/>} />
+      <Route path="/auth/document" element={<Page.Document />} />
       <Route path="/auth" element={<Login/>} />
     </Routes>
   )

@@ -23,7 +23,7 @@ const Login = () => {
       <PasswordField fullWidth placeholder="Repeat password" />
       : null }
 
-      <Button fullWidth variant="contained" onClick={() => navigate("/user")}> {isRegister ? "Register" : "Login" } </Button>
+      <Button fullWidth variant="contained" onClick={() => navigate(isRegister ? "/auth/document" : "/user")}> {isRegister ? "Register" : "Login" } </Button>
       <Button fullWidth onClick={() => setIsRegister(value => !value)}> { isRegister ? "Login instead" : "Register instead" } </Button>
     </div>
   )

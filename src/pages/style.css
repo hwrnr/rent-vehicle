@@ -112,6 +112,12 @@
   border-right: none !important;
 }
 
+@media only screen and (max-width: 600px) {
+  .login {
+  margin-left: 1.0em;
+  margin-right: 1.0em;
+  }
+}
 @media only screen and (min-width: 600px) {
   .login{
     max-width: 40em;
