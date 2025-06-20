@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 import AdminRouting from "./adminRouting";
 
 import logo from "./logo.svg";
 
+import { AppBar, Box, Drawer, Toolbar } from "@mui/material";
 import "./App.css";
-import { AppBar, Drawer, Toolbar, Box, IconButton } from "@mui/material";
-import { Menu } from "@mui/icons-material";
 
 function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -18,13 +16,7 @@ function App() {
   };
 
   const DrawerLink = (props) => {
-    return (
-      <Link
-        onClick={toggleDrawer(false)}
-        className="drawer-button"
-        {...props}
-      ></Link>
-    );
+    return <Link onClick={toggleDrawer(false)} className="drawer-button" {...props}></Link>;
   };
 
   return (
@@ -37,12 +29,22 @@ function App() {
             open={isDrawerOpen} //if open is true, drawer is shown
             onClose={toggleDrawer(false)} //function that is called when the drawer should close
           >
-            <Box style={{minHeight: "100%", display: "flex", flexDirection: "column"}}>
-              <div className="fake-toolbar" style={{ height: "5.6em", backgroundColor: "#1976d2", color: "white", width: "100%",
-                  display: "flex", alignItems: "center", justifyContent: "center" }} >
+            <Box style={{ minHeight: "100%", display: "flex", flexDirection: "column" }}>
+              <div
+                className="fake-toolbar"
+                style={{
+                  height: "5.6em",
+                  backgroundColor: "#1976d2",
+                  color: "white",
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <p> Rentify (Admin panel) </p>
               </div>
-              <div style={{ width: "17em"}}>
+              <div style={{ width: "17em" }}>
                 <img src={logo} alt="" />
               </div>
               <div class="apart">

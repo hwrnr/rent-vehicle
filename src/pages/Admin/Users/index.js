@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-import { Button, Select, MenuItem, TextField } from "@mui/material";
-
-import ActivityView from "../../../components/ActivityView";
+import { Button, MenuItem, Select, TextField } from "@mui/material";
 
 import "../../style.css";
 
@@ -26,7 +24,6 @@ const Users = () => {
   const [plata, setPlata] = useState("");
   const [brojDokumenta, setBrojDokumenta] = useState("");
   const [brojRacuna, setBrojRacuna] = useState("");
-
 
   const [data, setData] = useState([
     {
@@ -80,11 +77,7 @@ const Users = () => {
         <div className="column">
           <div className="filteri">
             {Object.keys(typeIcons).map((iconId) => (
-              <Button
-                key={`typeIcons-${iconId}`}
-                variant={Number(iconId) === selectedType ? "contained" : ""}
-                onClick={handleIconPress(iconId)}
-              >
+              <Button key={`typeIcons-${iconId}`} variant={Number(iconId) === selectedType ? "contained" : ""} onClick={handleIconPress(iconId)}>
                 {typeIcons[iconId]}
               </Button>
             ))}
@@ -110,14 +103,14 @@ const Users = () => {
                   <div className="user-type">
                     <p>{typeIcons[user.type]}</p>
                   </div>
-                  <div style={{textAlign: "right"}} className="user-details">
+                  <div style={{ textAlign: "right" }} className="user-details">
                     <p> Broj lične karte (pasoša): {user.brDokumenta} </p>
-              {user.type === 0 ? null : 
-                  <>
-                    <p> Plata: {user.plata} </p>
-                    <p> Broj računa: {user.brojRacuna} </p>
-                  </>
-              }
+                    {user.type === 0 ? null : (
+                      <>
+                        <p> Plata: {user.plata} </p>
+                        <p> Broj računa: {user.brojRacuna} </p>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -127,33 +120,20 @@ const Users = () => {
           <h2> Unesite novog korisnika </h2>
 
           <div className="force-margin">
-
             <Select fullWidth value={kategorija} onChange={(event) => setKategorija(Number(event.target.value))}>
               {Object.keys(typeIcons).map((iconId) => (
-                <MenuItem key={`select-kat-korisnik-${iconId}`} value={iconId}> {typeIcons[iconId]} </MenuItem>
+                <MenuItem key={`select-kat-korisnik-${iconId}`} value={iconId}>
+                  {" "}
+                  {typeIcons[iconId]}{" "}
+                </MenuItem>
               ))}
             </Select>
 
-            <TextField
-              placeholder="Ime"
-              fullWidth
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            />
+            <TextField placeholder="Ime" fullWidth value={name} onChange={(event) => setName(event.target.value)} />
 
-            <TextField
-              placeholder="Prezime"
-              fullWidth
-              value={surname}
-              onChange={(event) => setSurname(event.target.value)}
-            />
+            <TextField placeholder="Prezime" fullWidth value={surname} onChange={(event) => setSurname(event.target.value)} />
 
-            <TextField
-              placeholder="JMBG"
-              fullWidth
-              value={jmbg}
-              onChange={(event) => setJmbg(event.target.value)}
-            />
+            <TextField placeholder="JMBG" fullWidth value={jmbg} onChange={(event) => setJmbg(event.target.value)} />
 
             <TextField
               placeholder="Broj lične karte (pasoša)"
@@ -162,67 +142,53 @@ const Users = () => {
               onChange={(event) => setBrojDokumenta(event.target.value)}
             />
 
-            <TextField
-              placeholder="Telefon"
+            <TextField placeholder="Telefon" fullWidth value={phone} onChange={(event) => setPhone(event.target.value)} />
+
+            <TextField placeholder="Email" fullWidth value={email} onChange={(event) => setEmail(event.target.value)} />
+
+            <TextField placeholder="Plata" fullWidth value={plata} onChange={(event) => setPlata(event.target.value)} />
+
+            <TextField placeholder="Broj računa" fullWidth value={brojRacuna} onChange={(event) => setBrojRacuna(event.target.value)} />
+
+            <Button
               fullWidth
-              value={phone}
-              onChange={(event) => setPhone(event.target.value)}
-            />
-
-            <TextField
-              placeholder="Email"
-              fullWidth
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-
-            <TextField
-              placeholder="Plata"
-              fullWidth
-              value={plata}
-              onChange={(event) => setPlata(event.target.value)}
-            />
-
-            <TextField
-              placeholder="Broj računa"
-              fullWidth
-              value={brojRacuna}
-              onChange={(event) => setBrojRacuna(event.target.value)}
-            />
-
-          <Button fullWidth variant="contained" onClick={() => {
-            const dataCopy = [...data];
-            dataCopy.push({
-              id: dataCopy.length + 1,
-              name: name,
-              surname: surname,
-              jmbg: jmbg,
-              email: email,
-              phone: phone,
-              type: kategorija,
-              brDokumenta: brojDokumenta,
-              plata: plata,
-              brojRacuna: brojRacuna,
-            })
-            setData(dataCopy);
-            setKategorija(0);
-            setName("");
-            setSurname("");
-            setJmbg("");
-            setEmail("");
-            setPhone("");
-            setBrojDokumenta("");
-            setPlata("");
-            setBrojRacuna("");
-          }} > Unesi novog korisnika </Button>
-
+              variant="contained"
+              onClick={() => {
+                const dataCopy = [...data];
+                dataCopy.push({
+                  id: dataCopy.length + 1,
+                  name: name,
+                  surname: surname,
+                  jmbg: jmbg,
+                  email: email,
+                  phone: phone,
+                  type: kategorija,
+                  brDokumenta: brojDokumenta,
+                  plata: plata,
+                  brojRacuna: brojRacuna,
+                });
+                setData(dataCopy);
+                setKategorija(0);
+                setName("");
+                setSurname("");
+                setJmbg("");
+                setEmail("");
+                setPhone("");
+                setBrojDokumenta("");
+                setPlata("");
+                setBrojRacuna("");
+              }}
+            >
+              {" "}
+              Unesi novog korisnika{" "}
+            </Button>
           </div>
         </div>
-    {
-        // <div className="column">
+        {
+          // <div className="column">
           // <ActivityView />
-        // </div>
-    }
+          // </div>
+        }
       </div>
     </div>
   );

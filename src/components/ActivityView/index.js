@@ -1,12 +1,8 @@
-import React, { useState } from "react";
-
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { TextField, IconButton, InputAdornment } from "@mui/material";
+import React from "react";
 
 import "../style.css";
 
 const ActivityView = (props) => {
-
   const data = [
     {
       regNumber: "Bike 12",
@@ -34,16 +30,15 @@ const ActivityView = (props) => {
     <>
       <h2> Istorija vozila </h2>
       <div className="activity-view">
-      {data.map((item, index) => (
-        <div className="activity-view-item" key={`activity-view-${index}`}>
-          <p style={{fontWeight: "bold"}}> {item.regNumber} </p>
-          <p> {item.text} </p>
-        </div>
-      ))}
+        {data.map((item, index) => (
+          <div className="activity-view-item" key={`activity-view-${index}`}>
+            <p style={{ fontWeight: "bold" }}> {item.regNumber} </p>
+            <p> {item.text} </p>
+          </div>
+        ))}
       </div>
     </>
   );
 };
 
 export default ActivityView;
-

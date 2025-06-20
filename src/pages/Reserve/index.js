@@ -1,14 +1,13 @@
 import "../style.css";
 
-import {TextField, Button } from '@mui/material';
-import {DateTimePicker} from "@mui/x-date-pickers";
-import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
-import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
+import { Button, TextField } from "@mui/material";
+import { DateTimePicker } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import axios from "axios";
-import srLocale from 'date-fns/locale/sr'
-import {useState, useEffect } from "react";
-import {Link, useParams} from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import srLocale from "date-fns/locale/sr";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Vehicle from "../Vehicles/Vehicle";
 
@@ -17,7 +16,7 @@ const Reserve = (props) => {
   const [endTime, setEndTime] = useState(new Date());
 
   const navigate = useNavigate();
-  const {_id} = useParams();
+  const { _id } = useParams();
 
   const [vehicle, setVehicle] = useState({});
 
@@ -32,17 +31,19 @@ const Reserve = (props) => {
   }, []);
 
   const handleReserve = () => {
-    const _id = (new Date()).toISOString();
-     axios.put(`http://mis.ggsystems.tech:5984/reservations/${_id}`, {
-       _id, 
-       startTime,
-       endTime,
-       vehicle,
-       cena: Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price,
-     }).then(() => {
+    const _id = new Date().toISOString();
+    axios
+      .put(`http://mis.ggsystems.tech:5984/reservations/${_id}`, {
+        _id,
+        startTime,
+        endTime,
+        vehicle,
+        cena: Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price,
+      })
+      .then(() => {
         navigate("/user/my-reservations");
-     })
-  }
+      });
+  };
 
   return (
     <div className="root">
@@ -51,34 +52,32 @@ const Reserve = (props) => {
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={srLocale}>
         <div className="makeBigger">
           <DateTimePicker
-  renderInput = {
-    (props) => <TextField {
-      ...props
-    } />}
+            renderInput={(props) => <TextField {...props} />}
             label="Početno vreme"
             value={startTime}
             fullwidth
             onChange={(newValue) => {
-              if (newValue < endTime)
-                setStartTime(newValue);
+              if (newValue < endTime) setStartTime(newValue);
             }}
           />
-    </div>
+        </div>
         <div className="makeBigger">
           <DateTimePicker
-            renderInput={(props) => <TextField {...props} />
-  } label = "Krajnje vreme"
-  value = {endTime} fullwidth
-            onChange={
-    (newValue) => {
-      if (newValue > startTime)
-        setEndTime(newValue);
-    }}
+            renderInput={(props) => <TextField {...props} />}
+            label="Krajnje vreme"
+            value={endTime}
+            fullwidth
+            onChange={(newValue) => {
+              if (newValue > startTime) setEndTime(newValue);
+            }}
           />
         </div>
 
-        <p> Cena: {Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price } RSD + gorivo</p>
-        <Button fullWidth variant="contained" onClick={handleReserve} > Rezerviši </Button>
+        <p> Cena: {Math.ceil((endTime - startTime) / (1000 * 60 * 60)) * vehicle.price} RSD + gorivo</p>
+        <Button fullWidth variant="contained" onClick={handleReserve}>
+          {" "}
+          Rezerviši{" "}
+        </Button>
       </LocalizationProvider>
     </div>
   );
